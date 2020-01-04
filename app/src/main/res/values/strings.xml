@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">IntroToViews</string>
+    <string name="btn_name">Show Me!</string>
+</resources>
