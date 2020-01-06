@@ -2,24 +2,47 @@ package com.example.introtoviews;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
+
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button hiButton;
+    private Button mButton;
+    private TextView mTextView;
+    private EditText mEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_layout);
+        setContentView(R.layout.activity_main);
 
-        hiButton = (Button) findViewById(R.id.hi_btn);
+        mButton = (Button) findViewById(R.id.mButton);
+        mTextView = (TextView) findViewById(R.id.mTextView);
+        mEditText = (EditText) findViewById(R.id.editText);
 
-        hiButton.setText(R.string.btn_name);
-        hiButton.setTextColor(Color.BLUE);
+        //change the title of button
+        mButton.setText(R.string.btn_name);
 
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String enteredText = mEditText.getText().toString();
+                
+                mTextView.setVisibility(View.VISIBLE);
+                mTextView.setText(enteredText);
+            }
+        });
 
     }
+
+    /*public void ShowMe(View view){
+
+        mTextView.setVisibility(View.VISIBLE);
+        mTextView.setText(R.string.show_text);
+    }*/
 }
